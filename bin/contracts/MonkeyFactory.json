@@ -1,0 +1,434 @@
+{
+    "contractName": "MonkeyFactory",
+    "abi": [
+        {
+            "inputs": [
+                {
+                    "internalType": "string",
+                    "name": "_name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "_dna",
+                    "type": "uint256"
+                }
+            ],
+            "name": "createMonkey",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "name": "monkeys",
+            "outputs": [
+                {
+                    "internalType": "string",
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "internalType": "uint256",
+                    "name": "dna",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.19+commit.7dd6d404\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[{\"internalType\":\"string\",\"name\":\"_name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"_dna\",\"type\":\"uint256\"}],\"name\":\"createMonkey\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"monkeys\",\"outputs\":[{\"internalType\":\"string\",\"name\":\"name\",\"type\":\"string\"},{\"internalType\":\"uint256\",\"name\":\"dna\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"/Users/coates/Documents/courses/madmonkeys/contracts/MonkeyFactory.sol\":\"MonkeyFactory\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"/Users/coates/Documents/courses/madmonkeys/contracts/MonkeyFactory.sol\":{\"keccak256\":\"0x5ed95f8dcb6097c794793270351a757374570935a6bfe42234832101a0395890\",\"license\":\"SEE LICENSE IN LICENSE\",\"urls\":[\"bzz-raw://a37d63d2ac5bacb5c23324b473fcfbcd42641535bf6b73ff9990bf21930f9d7c\",\"dweb:/ipfs/QmWpSiCskpTiddCcuy8Lwm1TCJpK5Luha6XSedwuDdA1tL\"]}},\"version\":1}",
+    "bytecode": "60806040526010600081905561001690600a610127565b60015534801561002557600080fd5b5061013a565b634e487b7160e01b600052601160045260246000fd5b600181815b8085111561007c5781600019048211156100625761006261002b565b8085161561006f57918102915b93841c9390800290610046565b509250929050565b60008261009357506001610121565b816100a057506000610121565b81600181146100b657600281146100c0576100dc565b6001915050610121565b60ff8411156100d1576100d161002b565b50506001821b610121565b5060208310610133831016604e8410600b84101617156100ff575081810a610121565b6101098383610041565b806000190482111561011d5761011d61002b565b0290505b92915050565b60006101338383610084565b9392505050565b6102de806101496000396000f3fe608060405234801561001057600080fd5b50600436106100365760003560e01c8063461b65861461003b578063a6fb702c1461004f575b600080fd5b61004d61004936600461014b565b5050565b005b61006261005d366004610200565b610079565b604051610070929190610219565b60405180910390f35b6002818154811061008957600080fd5b90600052602060002090600202016000915090508060000180546100ac9061026e565b80601f01602080910402602001604051908101604052809291908181526020018280546100d89061026e565b80156101255780601f106100fa57610100808354040283529160200191610125565b820191906000526020600020905b81548152906001019060200180831161010857829003601f168201915b5050505050908060010154905082565b634e487b7160e01b600052604160045260246000fd5b6000806040838503121561015e57600080fd5b823567ffffffffffffffff8082111561017657600080fd5b818501915085601f83011261018a57600080fd5b81358181111561019c5761019c610135565b604051601f8201601f19908116603f011681019083821181831017156101c4576101c4610135565b816040528281528860208487010111156101dd57600080fd5b826020860160208301376000602093820184015298969091013596505050505050565b60006020828403121561021257600080fd5b5035919050565b604081526000835180604084015260005b81811015610247576020818701810151606086840101520161022a565b506000606082850101526060601f19601f8301168401019150508260208301529392505050565b600181811c9082168061028257607f821691505b6020821081036102a257634e487b7160e01b600052602260045260246000fd5b5091905056fea2646970667358221220caec19dd86a061419203772c94ff29950fb68ed129caf8b1c11d9c248741fc6a64736f6c63430008130033",
+    "deployedBytecode": "608060405234801561001057600080fd5b50600436106100365760003560e01c8063461b65861461003b578063a6fb702c1461004f575b600080fd5b61004d61004936600461014b565b5050565b005b61006261005d366004610200565b610079565b604051610070929190610219565b60405180910390f35b6002818154811061008957600080fd5b90600052602060002090600202016000915090508060000180546100ac9061026e565b80601f01602080910402602001604051908101604052809291908181526020018280546100d89061026e565b80156101255780601f106100fa57610100808354040283529160200191610125565b820191906000526020600020905b81548152906001019060200180831161010857829003601f168201915b5050505050908060010154905082565b634e487b7160e01b600052604160045260246000fd5b6000806040838503121561015e57600080fd5b823567ffffffffffffffff8082111561017657600080fd5b818501915085601f83011261018a57600080fd5b81358181111561019c5761019c610135565b604051601f8201601f19908116603f011681019083821181831017156101c4576101c4610135565b816040528281528860208487010111156101dd57600080fd5b826020860160208301376000602093820184015298969091013596505050505050565b60006020828403121561021257600080fd5b5035919050565b604081526000835180604084015260005b81811015610247576020818701810151606086840101520161022a565b506000606082850101526060601f19601f8301168401019150508260208301529392505050565b600181811c9082168061028257607f821691505b6020821081036102a257634e487b7160e01b600052602260045260246000fd5b5091905056fea2646970667358221220caec19dd86a061419203772c94ff29950fb68ed129caf8b1c11d9c248741fc6a64736f6c63430008130033",
+    "sourceMap": "76:255:0:-:0;;;122:2;105:19;;;;148:15;;:2;:15;:::i;:::-;130:33;;76:255;;;;;;;;;;;;14:127:1;75:10;70:3;66:20;63:1;56:31;106:4;103:1;96:15;130:4;127:1;120:15;146:422;235:1;278:5;235:1;292:270;313:7;303:8;300:21;292:270;;;372:4;368:1;364:6;360:17;354:4;351:27;348:53;;;381:18;;:::i;:::-;431:7;421:8;417:22;414:55;;;451:16;;;;414:55;530:22;;;;490:15;;;;292:270;;;296:3;146:422;;;;;:::o;573:806::-;622:5;652:8;642:80;;-1:-1:-1;693:1:1;707:5;;642:80;741:4;731:76;;-1:-1:-1;778:1:1;792:5;;731:76;823:4;841:1;836:59;;;;909:1;904:130;;;;816:218;;836:59;866:1;857:10;;880:5;;;904:130;941:3;931:8;928:17;925:43;;;948:18;;:::i;:::-;-1:-1:-1;;1004:1:1;990:16;;1019:5;;816:218;;1118:2;1108:8;1105:16;1099:3;1093:4;1090:13;1086:36;1080:2;1070:8;1067:16;1062:2;1056:4;1053:12;1049:35;1046:77;1043:159;;;-1:-1:-1;1155:19:1;;;1187:5;;1043:159;1234:34;1259:8;1253:4;1234:34;:::i;:::-;1304:6;1300:1;1296:6;1292:19;1283:7;1280:32;1277:58;;;1315:18;;:::i;:::-;1353:20;;-1:-1:-1;573:806:1;;;;;:::o;1384:131::-;1444:5;1473:36;1500:8;1494:4;1473:36;:::i;:::-;1464:45;1384:131;-1:-1:-1;;;1384:131:1:o;:::-;76:255:0;;;;;;",
+    "deployedSourceMap": "76:255:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;265:63;;;;;;:::i;:::-;;;;;;235:23;;;;;;:::i;:::-;;:::i;:::-;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o;14:127:1:-;75:10;70:3;66:20;63:1;56:31;106:4;103:1;96:15;130:4;127:1;120:15;146:1000;224:6;232;285:2;273:9;264:7;260:23;256:32;253:52;;;301:1;298;291:12;253:52;341:9;328:23;370:18;411:2;403:6;400:14;397:34;;;427:1;424;417:12;397:34;465:6;454:9;450:22;440:32;;510:7;503:4;499:2;495:13;491:27;481:55;;532:1;529;522:12;481:55;568:2;555:16;590:2;586;583:10;580:36;;;596:18;;:::i;:::-;671:2;665:9;639:2;725:13;;-1:-1:-1;;721:22:1;;;745:2;717:31;713:40;701:53;;;769:18;;;789:22;;;766:46;763:72;;;815:18;;:::i;:::-;855:10;851:2;844:22;890:2;882:6;875:18;932:7;925:4;920:2;916;912:11;908:22;905:35;902:55;;;953:1;950;943:12;902:55;1013:2;1006:4;1002:2;998:13;991:4;983:6;979:17;966:50;1060:1;1053:4;1036:15;;;1032:26;;1025:37;1036:15;1119:20;;;;1106:34;;-1:-1:-1;;;;;;146:1000:1:o;1151:180::-;1210:6;1263:2;1251:9;1242:7;1238:23;1234:32;1231:52;;;1279:1;1276;1269:12;1231:52;-1:-1:-1;1302:23:1;;1151:180;-1:-1:-1;1151:180:1:o;1336:604::-;1513:2;1502:9;1495:21;1476:4;1545:6;1539:13;1588:6;1583:2;1572:9;1568:18;1561:34;1613:1;1623:144;1637:6;1634:1;1631:13;1623:144;;;1750:4;1734:14;;;1730:25;;1724:32;1719:2;1700:17;;;1696:26;1689:68;1652:12;1623:144;;;1627:3;1816:1;1811:2;1802:6;1791:9;1787:22;1783:31;1776:42;1886:2;1879;1875:7;1870:2;1862:6;1858:15;1854:29;1843:9;1839:45;1835:54;1827:62;;;1927:6;1920:4;1909:9;1905:20;1898:36;1336:604;;;;;:::o;1945:380::-;2024:1;2020:12;;;;2067;;;2088:61;;2142:4;2134:6;2130:17;2120:27;;2088:61;2195:2;2187:6;2184:14;2164:18;2161:38;2158:161;;2241:10;2236:3;2232:20;2229:1;2222:31;2276:4;2273:1;2266:15;2304:4;2301:1;2294:15;2158:161;;1945:380;;;:::o",
+    "sourcePath": "/Users/coates/Documents/courses/madmonkeys/contracts/MonkeyFactory.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.19+commit.7dd6d404"
+    },
+    "ast": {
+        "absolutePath": "/Users/coates/Documents/courses/madmonkeys/contracts/MonkeyFactory.sol",
+        "exportedSymbols": {
+            "MonkeyFactory": [
+                27
+            ]
+        },
+        "id": 28,
+        "license": "SEE LICENSE IN LICENSE",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 1,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".0"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "51:23:0"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "canonicalName": "MonkeyFactory",
+                "contractDependencies": [],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 27,
+                "linearizedBaseContracts": [
+                    27
+                ],
+                "name": "MonkeyFactory",
+                "nameLocation": "85:13:0",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "constant": false,
+                        "id": 4,
+                        "mutability": "mutable",
+                        "name": "dnaDigits",
+                        "nameLocation": "110:9:0",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 27,
+                        "src": "105:19:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 2,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "105:4:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "value": {
+                            "hexValue": "3136",
+                            "id": 3,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "122:2:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_rational_16_by_1",
+                                "typeString": "int_const 16"
+                            },
+                            "value": "16"
+                        },
+                        "visibility": "internal"
+                    },
+                    {
+                        "constant": false,
+                        "id": 9,
+                        "mutability": "mutable",
+                        "name": "dnaModulus",
+                        "nameLocation": "135:10:0",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 27,
+                        "src": "130:33:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 5,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "130:4:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "value": {
+                            "commonType": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            },
+                            "id": 8,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
+                                "hexValue": "3130",
+                                "id": 6,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "kind": "number",
+                                "lValueRequested": false,
+                                "nodeType": "Literal",
+                                "src": "148:2:0",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_rational_10_by_1",
+                                    "typeString": "int_const 10"
+                                },
+                                "value": "10"
+                            },
+                            "nodeType": "BinaryOperation",
+                            "operator": "**",
+                            "rightExpression": {
+                                "id": 7,
+                                "name": "dnaDigits",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 4,
+                                "src": "154:9:0",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                }
+                            },
+                            "src": "148:15:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "internal"
+                    },
+                    {
+                        "canonicalName": "MonkeyFactory.Monkey",
+                        "id": 14,
+                        "members": [
+                            {
+                                "constant": false,
+                                "id": 11,
+                                "mutability": "mutable",
+                                "name": "name",
+                                "nameLocation": "201:4:0",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 14,
+                                "src": "194:11:0",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_string_storage_ptr",
+                                    "typeString": "string"
+                                },
+                                "typeName": {
+                                    "id": 10,
+                                    "name": "string",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "194:6:0",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_storage_ptr",
+                                        "typeString": "string"
+                                    }
+                                },
+                                "visibility": "internal"
+                            },
+                            {
+                                "constant": false,
+                                "id": 13,
+                                "mutability": "mutable",
+                                "name": "dna",
+                                "nameLocation": "220:3:0",
+                                "nodeType": "VariableDeclaration",
+                                "scope": 14,
+                                "src": "215:8:0",
+                                "stateVariable": false,
+                                "storageLocation": "default",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                },
+                                "typeName": {
+                                    "id": 12,
+                                    "name": "uint",
+                                    "nodeType": "ElementaryTypeName",
+                                    "src": "215:4:0",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    }
+                                },
+                                "visibility": "internal"
+                            }
+                        ],
+                        "name": "Monkey",
+                        "nameLocation": "177:6:0",
+                        "nodeType": "StructDefinition",
+                        "scope": 27,
+                        "src": "170:60:0",
+                        "visibility": "public"
+                    },
+                    {
+                        "constant": false,
+                        "functionSelector": "a6fb702c",
+                        "id": 18,
+                        "mutability": "mutable",
+                        "name": "monkeys",
+                        "nameLocation": "251:7:0",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 27,
+                        "src": "235:23:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_array$_t_struct$_Monkey_$14_storage_$dyn_storage",
+                            "typeString": "struct MonkeyFactory.Monkey[]"
+                        },
+                        "typeName": {
+                            "baseType": {
+                                "id": 16,
+                                "nodeType": "UserDefinedTypeName",
+                                "pathNode": {
+                                    "id": 15,
+                                    "name": "Monkey",
+                                    "nameLocations": [
+                                        "235:6:0"
+                                    ],
+                                    "nodeType": "IdentifierPath",
+                                    "referencedDeclaration": 14,
+                                    "src": "235:6:0"
+                                },
+                                "referencedDeclaration": 14,
+                                "src": "235:6:0",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_struct$_Monkey_$14_storage_ptr",
+                                    "typeString": "struct MonkeyFactory.Monkey"
+                                }
+                            },
+                            "id": 17,
+                            "nodeType": "ArrayTypeName",
+                            "src": "235:8:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_array$_t_struct$_Monkey_$14_storage_$dyn_storage_ptr",
+                                "typeString": "struct MonkeyFactory.Monkey[]"
+                            }
+                        },
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 25,
+                            "nodeType": "Block",
+                            "src": "326:2:0",
+                            "statements": []
+                        },
+                        "functionSelector": "461b6586",
+                        "id": 26,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "createMonkey",
+                        "nameLocation": "274:12:0",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 23,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 20,
+                                    "mutability": "mutable",
+                                    "name": "_name",
+                                    "nameLocation": "301:5:0",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 26,
+                                    "src": "287:19:0",
+                                    "stateVariable": false,
+                                    "storageLocation": "memory",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_string_memory_ptr",
+                                        "typeString": "string"
+                                    },
+                                    "typeName": {
+                                        "id": 19,
+                                        "name": "string",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "287:6:0",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_string_storage_ptr",
+                                            "typeString": "string"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 22,
+                                    "mutability": "mutable",
+                                    "name": "_dna",
+                                    "nameLocation": "313:4:0",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 26,
+                                    "src": "308:9:0",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 21,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "308:4:0",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "286:32:0"
+                        },
+                        "returnParameters": {
+                            "id": 24,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "326:0:0"
+                        },
+                        "scope": 27,
+                        "src": "265:63:0",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    }
+                ],
+                "scope": 28,
+                "src": "76:255:0",
+                "usedErrors": []
+            }
+        ],
+        "src": "51:281:0"
+    },
+    "functionHashes": {
+        "createMonkey(string,uint256)": "461b6586",
+        "monkeys(uint256)": "a6fb702c"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "146800",
+            "executionCost": "44741",
+            "totalCost": "191541"
+        },
+        "external": {
+            "createMonkey(string,uint256)": "infinite",
+            "monkeys(uint256)": "infinite"
+        }
+    }
+}
