@@ -11,6 +11,13 @@ contract MonkeyFactory {
     }
     Monkey[] public monkeys;
 
-    function createMonkey(string memory _name, uint _dna) public {}
+    function _createMonkey(string memory _name, uint _dna) private {
+        monkeys.push(Monkey(_name, _dna));
+    }
+
+    function _generateRandomDna(string memory _str) private view returns (uint) {
+        uint rand = uint(keccak256(abi.encodePacked(_str)));
+        return rand % dnaModulus;
+    }
 
 }
