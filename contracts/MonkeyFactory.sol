@@ -20,4 +20,8 @@ contract MonkeyFactory {
         return rand % dnaModulus;
     }
 
+    function createRandomMonkey(string memory _name) public {
+        uint randDna = _generateRandomDna(_name);
+        _createMonkey(_name, randDna);
+    }
 }
