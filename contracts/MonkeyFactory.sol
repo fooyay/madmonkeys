@@ -17,7 +17,7 @@ contract MonkeyFactory {
     mapping (uint => address) public monkeyToOwner;
     mapping (address => uint) ownerMonkeyCount;
 
-    function _createMonkey(string memory _name, uint _dna) private {
+    function _createMonkey(string memory _name, uint _dna) internal {
         monkeys.push(Monkey(_name, _dna));
         uint id = monkeys.length - 1;
         monkeyToOwner[id] = msg.sender;
