@@ -20,10 +20,13 @@ contract MonkeyFactory {
     function _createMonkey(string memory _name, uint _dna) private {
         monkeys.push(Monkey(_name, _dna));
         uint id = monkeys.length - 1;
+        monkeyToOwner[id] = msg.sender;
+        ownerMonkeyCount[msg.sender]++;
         emit NewMonkey(id, _name, _dna);
     }
 
     function _generateRandomDna(string memory _str) private view returns (uint) {
+        require(ownerMonkeyCount[msg.sender] == 0);
         uint rand = uint(keccak256(abi.encodePacked(_str)));
         return rand % dnaModulus;
     }
