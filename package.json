@@ -1,0 +1,23 @@
+{
+  "name": "madmonkeys",
+  "version": "1.0.0",
+  "description": "This is exactly what you need. More mad monkeys.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fooyay/madmonkeys.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fooyay/madmonkeys/issues"
+  },
+  "homepage": "https://github.com/fooyay/madmonkeys#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.9.1"
+  }
+}
