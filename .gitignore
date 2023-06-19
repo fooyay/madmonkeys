@@ -1,0 +1,15 @@
+# Ignore compiled Solidity contracts
+bin/
+
+# Ignore temporary files
+*~
+
+# Ignore IDE files
+.idea/
+.vscode/
+
+# Ignore node_modules
+node_modules/
+
+# Home settings
+.env
