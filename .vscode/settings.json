@@ -1,9 +1,4 @@
 {
-  "editor.formatOnSave": true,
   "solidity.enabledAsYouTypeCompilationErrorCheck": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode",
-  "solidity.formatter": "prettier",
-  "[solidity]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  "[solidity]": {}
 }
