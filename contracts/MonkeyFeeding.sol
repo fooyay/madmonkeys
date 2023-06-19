@@ -33,9 +33,10 @@ contract MonkeyFeeding is MonkeyFactory {
         return(_monkey.readyTime <= block.timestamp);
     }
 
-    function feedAndMultiply(uint _monkeyId, uint _targetDna, string memory _species) public {
+    function feedAndMultiply(uint _monkeyId, uint _targetDna, string memory _species) internal {
         require(msg.sender == monkeyToOwner[_monkeyId]);
         Monkey storage myMonkey = monkeys[_monkeyId];
+        require(_isReady(myMonkey));
 
         _targetDna = _targetDna % dnaModulus;
         uint newDna = (myMonkey.dna + _targetDna) / 2;
@@ -43,6 +44,8 @@ contract MonkeyFeeding is MonkeyFactory {
             newDna = newDna - newDna % 100 + 99;
         }
         _createMonkey("NoName", newDna);
+        _triggerCooldown(myMonkey);
+
     }
 
     function feedOnKitty(uint _zombieId, uint _kittyId) public {
