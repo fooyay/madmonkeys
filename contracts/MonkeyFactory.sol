@@ -16,6 +16,8 @@ contract MonkeyFactory is Ownable {
         uint dna;
         uint32 level;
         uint32 readyTime;
+        uint16 winCount;
+        uint16 lossCount;
     }
     Monkey[] public monkeys;
 
@@ -24,7 +26,7 @@ contract MonkeyFactory is Ownable {
 
     function _createMonkey(string memory _name, uint _dna) internal {
         monkeys.push(
-            Monkey(_name, _dna, 1, uint32(block.timestamp + cooldownTime))
+            Monkey(_name, _dna, 1, uint32(block.timestamp + cooldownTime), 0, 0)
         );
         uint id = monkeys.length - 1;
         monkeyToOwner[id] = msg.sender;

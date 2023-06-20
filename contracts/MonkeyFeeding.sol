@@ -27,6 +27,11 @@ abstract contract KittyInterface {
 contract MonkeyFeeding is MonkeyFactory {
     KittyInterface kittyContract;
 
+    modifier ownerOf(uint _monkeyId) {
+        require(msg.sender == monkeyToOwner[_monkeyId]);
+        _;
+    }
+
     function setKittyContractAddress(address _address) external onlyOwner {
         kittyContract = KittyInterface(_address);
     }
@@ -43,8 +48,7 @@ contract MonkeyFeeding is MonkeyFactory {
         uint _monkeyId,
         uint _targetDna,
         string memory _species
-    ) internal {
-        require(msg.sender == monkeyToOwner[_monkeyId]);
+    ) internal ownerOf(_monkeyId) {
         Monkey storage myMonkey = monkeys[_monkeyId];
         require(_isReady(myMonkey));
 
