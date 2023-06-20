@@ -4,9 +4,25 @@ pragma solidity ^0.8.0;
 import "./MonkeyFeeding.sol";
 
 contract MonkeyHelper is MonkeyFeeding {
+    uint levelUpFee = 0.001 ether;
+
     modifier aboveLevel(uint _level, uint _monkeyId) {
         require(monkeys[_monkeyId].level >= _level);
         _;
+    }
+
+    function withdraw() external onlyOwner {
+        address payable _owner = payable(owner());
+        _owner.transfer(address(this).balance);
+    }
+
+    function setLevelUpFee(uint _fee) external onlyOwner {
+        levelUpFee = _fee;
+    }
+
+    function levelUp(uint _monkeyId) external payable {
+        require(msg.value == levelUpFee);
+        monkeys[_monkeyId].level++;
     }
 
     function changeName(
