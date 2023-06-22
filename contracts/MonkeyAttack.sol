@@ -20,9 +20,19 @@ contract MonkeyAttack is MonkeyHelper {
     function attack(
         uint _monkeyId,
         uint _targetId
-    ) external ownerOf(_monkeyId) {
+    ) external onlyOwnerOf(_monkeyId) {
         Monkey storage myMonkey = monkeys[_monkeyId];
         Monkey storage enemyMonkey = monkeys[_targetId];
         uint rand = randMod(100);
+        if (rand <= attackVictoryProbability) {
+            myMonkey.winCount++;
+            myMonkey.level++;
+            enemyMonkey.lossCount++;
+            feedAndMultiply(_monkeyId, enemyMonkey.dna, "monkey");
+        } else {
+            myMonkey.lossCount++;
+            enemyMonkey.winCount++;
+            _triggerCooldown(myMonkey);
+        }
     }
 }

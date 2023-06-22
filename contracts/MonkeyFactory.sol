@@ -3,8 +3,11 @@ pragma solidity ^0.8.0;
 
 // import "./Ownable.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/utils/math/SafeMath.sol";
 
 contract MonkeyFactory is Ownable {
+    using SafeMath for uint256;
+
     event NewMonkey(uint monkeyId, string name, uint dna);
 
     uint dnaDigits = 16;

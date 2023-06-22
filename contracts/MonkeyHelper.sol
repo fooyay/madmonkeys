@@ -28,14 +28,14 @@ contract MonkeyHelper is MonkeyFeeding {
     function changeName(
         uint _monkeyId,
         string calldata _newName
-    ) external aboveLevel(2, _monkeyId) ownerOf(_monkeyId) {
+    ) external aboveLevel(2, _monkeyId) onlyOwnerOf(_monkeyId) {
         monkeys[_monkeyId].name = _newName;
     }
 
     function changeDna(
         uint _monkeyId,
         uint _newDna
-    ) external aboveLevel(20, _monkeyId) ownerOf(_monkeyId) {
+    ) external aboveLevel(20, _monkeyId) onlyOwnerOf(_monkeyId) {
         monkeys[_monkeyId].dna = _newDna;
     }
 
