@@ -20,13 +20,123 @@
     ></script>
   </head>
   <body>
+    <div id="txStatus"></div>
+    <div id="monkeys"></div>
     <script>
       var madMonkeys
+      var userAccount
 
       function startApp() {
         var madMonkeysAddress = "YOUR_CONTRACT_ADDRESS"
         madMonkeys = new web3js.eth.Contract(madMonkeysABI, madMonkeysAddress)
+
+        var accountInterval = setInterval(function () {
+          if (web3.eth.accounts[0] !== userAccount) {
+            userAccount = web3.eth.accounts[0]
+            getMonkeysByOwner(userAcount).then(displayMonkeys)
+          }
+        }, 100)
+
+        // Use `filter` to only fire this code when `_to` equals `userAccount`
+        madMonkeys.events
+          .Transfer({ filter: { _to: userAccount } })
+          .on("data", function (event) {
+            let data = event.returnValues
+            // The current user just received a monkey!
+            // Do something here to update the UI to show it
+            getMonkeysByOwner(userAccount).then(displayMonkeys)
+          })
+          .on("error", console.error)
       }
+
+      function displayMonkeys(ids) {
+        $("monkeys").empty()
+        for (const id of ids) {
+          getMonkeyDetails(id).then(function (monkey) {
+            // Using ES6's "template literals" to inject variables into the HTML.
+            // Append each one to our #monkeys div
+            $("#monkeys").append(`<div class="zombie">
+    <ul>
+      <li>Name: ${monkey.name}</li>
+      <li>DNA: ${monkey.dna}</li>
+      <li>Level: ${monkey.level}</li>
+      <li>Wins: ${monkey.winCount}</li>
+      <li>Losses: ${monkey.lossCount}</li>
+      <li>Ready Time: ${monkey.readyTime}</li>
+    </ul>
+  </div>`)
+          })
+        }
+      }
+
+      function createRandomMonkey(name) {
+        // This is going to take a while, so update the UI to let the user know
+        // the transaction has been sent
+        $("#txStatus").text(
+          "Creating new monkey on the blockchain. This may take a while..."
+        )
+        // Send the tx to our contract:
+        return madMonkeys.methods
+          .createRandomMonkey(name)
+          .send({ from: userAccount })
+          .on("receipt", function (receipt) {
+            $("#txStatus").text("Successfully created " + name + "!")
+            // Transaction was accepted into the blockchain, let's redraw the UI
+            getMonkeysByOwner(userAccount).then(displayMonkeys)
+          })
+          .on("error", function (error) {
+            // Do something to alert the user their transaction has failed
+            $("#txStatus").text(error)
+          })
+      }
+
+      function feedOnKitty(monkeyId, kittyId) {
+        // This is going to take a while, so update the UI to let the user know
+        // the transaction has been sent
+        $("#txStatus").text("Eating a kitty. This may take a while...")
+        // Send the tx to our contract:
+        return madMonkeys.methods
+          .feedOnKitty(monkeyId, kittyId)
+          .send({ from: userAccount })
+          .on("receipt", function (receipt) {
+            $("#txStatus").text("Ate a kitty and spawned a new monkey!")
+            // Transaction was accepted into the blockchain, let's redraw the UI
+            getMonkeysByOwner(userAccount).then(displayMonkeys)
+          })
+          .on("error", function (error) {
+            // Do something to alert the user their transaction has failed
+            $("#txStatus").text(error)
+          })
+      }
+
+      function levelUp(monkeyId) {
+        $("#txStatus").text("Leveling up your monkey...")
+        return madMonkeys.methods
+          .levelUp(monkeyId)
+          .send({
+            from: userAccount,
+            value: web3js.utils.toWei("0.001", "ether"),
+          })
+          .on("receipt", function (receipt) {
+            $("#txStatus").text("Monkey leveled up! Woohoo!")
+          })
+          .on("error", function (error) {
+            $("#txStatus").text(error)
+          })
+      }
+
+      // More send functions TBD
+      function attack() {}
+
+      function changeName() {}
+
+      function changeDna() {}
+
+      function transfer() {}
+
+      function ownerOf() {}
+
+      function balanceOf() {}
 
       function getMonkeyDetails(id) {
         return madMonkeys.methods.monkeys(id).call()
@@ -54,6 +164,48 @@
         // Now you can start your app & access web3js freely:
         startApp()
       })
+
+      // TODO: separate admin page for:
+      // * setKittyContractAddress
+      // * setLevelUpFee
+      // * withdraw
+      //
+      // an individual monkey page with a permalink
+      // * monkey's appearance, name, owner, link to owner's profile page
+      // * win/loss count, battle history
+      // * other stats
+      //
+      // a user page with a permalink
+      // * view their monkeys
+      // * option to attack a monkey if logged in with metamask
+      //
+      // a home page
+      // * show current user's user page
+      //
+      // a way to feed on cryptokitties
+      // * enter kitty id or url
+      // * replace feeding on kities with something else
+      //
+      // a way to attack another user's monkey
+      // * popup a modal to select which monkey in your group you want to use
+      // * on home page, give option for your monkey to search for a monkey to attack
+      // * or attack a random monkey
+      // * grey out attack buttons in cooldown period
+      //
+      // homepage to have options on each monkey to change name, DNA, level up
+      // * gray out if not high enough level yet
+      //
+      // for new users, prompt to get started by creating a random monkey
+      //
+      // add Attack event with indexed address
+      // * realtime notifications - show popup when attacked, with attacker's details
+      //
+      // cache data so we don't ask infura for the same stuff alla time
+      // * e.g. displayMonkey and getMonkeyDetails gets repetitive data
+      //
+      // realtime chat room for players? discord channel?
+      //
+      // newsletter??
     </script>
   </body>
 </html>

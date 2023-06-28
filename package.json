@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/fooyay/madmonkeys#readme",
   "dependencies": {
-    "@openzeppelin/contracts": "^4.9.1"
+    "@openzeppelin/contracts": "^4.9.1",
+    "web3": "^4.0.1"
   }
 }
